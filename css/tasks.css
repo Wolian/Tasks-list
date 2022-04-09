@@ -6,3 +6,38 @@
     padding: 10px;
     border-bottom: 1px solid #ddd;
 }
+
+
+.tasks__button--done {
+    color: white;
+    background: hsl(90, 100%, 40%);
+    border: none;
+    border-radius: 5px;
+}
+
+.tasks__button--done:hover {
+     background: hsl(90, 100%, 50%);
+}
+
+.tasks__button--done:active {
+    background: hsl(90, 100%, 60%);
+}
+
+.tasks__button--remove {
+    color: white;
+    background: hsl(0, 100%, 60%);
+    border: none;
+    border-radius: 5px;
+}
+
+.tasks__button--remove:hover {
+     background: hsl(0, 100%, 70%);
+}
+
+.tasks__button--remove:active {
+    background: hsl(0, 100%, 80%);
+}
+
+.tasks__button {
+    font-size: 20px;
+}

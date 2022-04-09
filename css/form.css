@@ -3,3 +3,29 @@
     grid-template-columns: 1fr auto;
     grid-gap:20px;
 }
+
+@media(max-width: 767px) {
+    .form {
+        grid-template-columns: 1fr;
+    }
+}
+
+.form__button {
+    color: white;
+    background: hsl(180, 100%, 30%);
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.form__button:hover {
+    background: hsl(180, 100%, 35%);
+}
+
+.form__button:active {
+    background: hsl(180, 100%, 45%);
+}
+
+.form__input {
+    border-radius: 5px;
+}
