@@ -15,10 +15,7 @@
 
 
 .tasks__button--toggleDone {
-    color: white;
     background: hsl(90, 100%, 40%);
-    border: none;
-    border-radius: 5px;
 }
 
 .tasks__button--toggleDone:hover {
@@ -30,22 +27,24 @@
 }
 
 .tasks__button--remove {
-    color: white;
-    background: hsl(0, 100%, 60%);
-    border: none;
-    border-radius: 5px;
+    background: hsl(348, 83%, 47%);
 }
 
 .tasks__button--remove:hover {
-     background: hsl(0, 100%, 70%);
+     background: hsl(348, 83%, 57%);
 }
 
 .tasks__button--remove:active {
-    background: hsl(0, 100%, 80%);
+    background: hsl(348, 83%, 67%);
 }
 
 .tasks__button {
-    font-size: 20px;
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border-radius: 5px;
 }
 
 .tasks__content--done{
