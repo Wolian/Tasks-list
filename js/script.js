@@ -24,7 +24,21 @@
     };
 
     const addNewTask = (newTaskContent) => {
-        tasks = [...tasks, {content: newTaskContent}];
+        tasks = [...tasks, { content: newTaskContent }];
+        render();
+    };
+
+    const markAllTasksDone = () => {
+        tasks = tasks.map((task) => ({
+            ...task,
+            done: true,
+        }));
+
+        render();
+    };
+
+    const toggleHideDoneTasks = () => {
+        hideDoneTasks = !hideDoneTasks;
         render();
     };
 
@@ -48,12 +62,9 @@
         });
     };
 
-    const render = () => {
-        let tasksListHTMLContent = "";
-
-        for (const task of tasks) {
-            tasksListHTMLContent += `
-                <li class="tasks__item js-task">
+    const renderTasks = () => {
+        const taksToHTML = task => `
+                <li class = "tasks__item${task.done && hideDoneTasks ? "tasks__item--hiden" : ""} js-task">
             
                     <button class="tasks__button tasks__button--toggleDone js-toggleDone">
                         ${task.done ? "✔" : ""}
@@ -67,17 +78,57 @@
                 </li>
             `;
 
-        }
-
-        document.querySelector(".js-tasks").innerHTML = tasksListHTMLContent;
-
-        bindRemoveEvents(); 
-
-        bindToggleDoneEvents();
-
+        const tasksElement = document.querySelector(".js-tasks");
+        tasksElement.innerHTML = tasks.map(taksToHTML).join("");
     };
 
-    const onFormSubmit = (event) => { 
+    const renderButtons = () => {
+        const buttonElement = document.querySelector(".js-buttons");
+
+        if (!tasks.length) {
+            buttonElement.innerHTML = "";
+            return;
+        }
+
+        buttonElement.innerHTML = `
+                <button class = "buttons__button js-toggleHideDoneTasks"> 
+                    ${hideDoneTasks ? "Pokaż" : "Ukryj"} ukończone
+                </button>
+                <button class = "buttons_button js-markAllDone"
+                    ${tasks.every(({ done }) => done) ? "disabled" : ""}
+                >
+                    Ukończ wszystkie
+                </button>
+            `;
+    };
+
+    const bindButtonEvents = () => {
+        const markAllDoneButton = document.querySelector(".js-markAllDone");
+
+        if (markAllDoneButton) {
+            markAllDoneButton.addEventListener("click", markAllTasksDone);
+        }
+
+        const toggleHideDoneTasksButton = document.querySelector(".js-toggleHideDoneTasks");
+
+        if (toggleHideDoneTasksButton) {
+            toggleHideDoneTasksButton.addEventListener("click", toggleHideDoneTasks);
+        }
+    };
+
+    const render = () => {
+        renderTasks();
+        bindRemoveEvents();
+        bindToggleDoneEvents();
+
+        renderButtons();
+        bindButtonEvents();
+    };
+
+
+
+
+    const onFormSubmit = (event) => {
         event.preventDefault();
 
         const newTaskElement = document.querySelector(".js-newTask")
