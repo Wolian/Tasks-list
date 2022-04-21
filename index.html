@@ -10,6 +10,7 @@
     <link href="css/tasks.css" rel="stylesheet">
     <link href="css/container.css" rel="stylesheet">
     <link href="css/section.css" rel="stylesheet">
+    <link href="css/buttons.css" rel="stylesheet">
     <script defer src="js/script.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
@@ -24,9 +25,11 @@
         <header>
             <h1>Lista zadań</h1>
         </header>
-        
+
         <section class="section">
-            <h2 class="section__header">Dodaj nowe zadanie</h2>
+            <header class="section__header">
+                <h2 class="section__title">Dodaj nowe zadanie</h2>
+            </header>
             <div class="section__body">
                 <form class="form js-form">
                     <input class="form__input js-newTask" placeholder="Co jest do zrobienia?">
@@ -34,9 +37,11 @@
                 </form>
             </div>
         </section>
-
         <section class="section">
-            <h2 class="section__header">Lista zadań</h2>
+            <header class="section__header">
+                <h2 class="section__title">Lista zadań</h2>
+                <div class="buttons js-buttons"></div>
+            </header>
             <div class="section__body">
                 <ul class="tasks js-tasks"></ul>
             </div>
@@ -45,4 +50,3 @@
 </body>
 
 </html>
-

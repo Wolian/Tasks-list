@@ -15,11 +15,12 @@
     background: hsl(180, 100%, 30%);
     padding: 10px;
     border: none;
-    border-radius: 5px;
+    transition: 1s;
 }
 
 .form__button:hover {
     background: hsl(180, 100%, 35%);
+    transform: scale(1.1);
 }
 
 .form__button:active {
